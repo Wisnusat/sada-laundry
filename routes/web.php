@@ -13,7 +13,7 @@ Route::get('/contact', [LaundryController::class, 'contact'])->name('contact');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('registerUser');
+Route::post('/register', [AuthController::class, 'register']);
 Route::get('/order', [OrderController::class, 'create'])->name('orders.create');
 Route::post('/order', [OrderController::class, 'store'])->name('orders.store');
 Route::get('/show', [LaundryController::class, 'show'])->name('orderId');
