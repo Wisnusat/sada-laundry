@@ -21,4 +21,4 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/order-history', [OrderController::class, 'index'])->name('orders.history');
 Route::get('/admin/order-list', [AdminOrderController::class, 'index'])->name('admin.orders');
 Route::post('/admin/orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
-
+Route::post('/orders/{order}/cancel', [OrderController::class, 'cancelOrder'])->name('orders.cancel');

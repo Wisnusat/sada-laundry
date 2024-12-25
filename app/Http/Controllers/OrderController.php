@@ -64,4 +64,18 @@ class OrderController extends Controller
             return redirect()->route('orders.create')->with('error', 'Failed to place order. Please try again.');
         }
     }
+
+    public function cancelOrder(Order $order)
+    {
+        // Check if the user is authorized to cancel the order
+        if (auth()->user()->id !== $order->user_id) {
+            return response()->json(['error' => 'Unauthorized'], 403);
+        }
+    
+        // Update the status to 'canceled'
+        $order->status = 'canceled';
+        $order->save();
+    
+        return response()->json(['message' => 'Order canceled successfully', 'order' => $order]);
+    }
 }
